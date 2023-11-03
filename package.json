@@ -1,0 +1,20 @@
+{
+  "name": "postman-clone",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^4.4.5"
+  },
+  "dependencies": {
+    "axios": "^1.5.0",
+    "bootstrap": "^5.3.2",
+    "monaco-editor": "^0.44.0",
+    "pretty-bytes": "^6.1.1"
+  }
+}

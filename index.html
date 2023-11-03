@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="../node_modules/monaco-editor/min/vs/loader.js"></script>
+  <script src="script.js" type="module"></script>
+  <title>Vite App</title>
+</head>
+
+<body>
+  <div class="p-4 container mx-auto">
+    <form data-form>
+      <div class="input-group mb-4">
+        <select class="form-select flex-grow-0 w-auto" data-method>
+          <option value="GET" selected>GET</option>
+          <option value="POST">POST</option>
+          <option value="PUT">PUT</option>
+          <option value="PATCH">PATCH</option>
+          <option value="DELETE">DELETE</option>
+        </select>
+        <input required type="text" class="form-control" type="url" placeholder="https://example.com" data-url />
+        <button type="submit" class="btn btn-primary">Send</button>
+      </div>
+
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="query-params-tab" data-bs-toggle="tab" data-bs-target="#query-params-pane"
+            type="button" role="tab">
+            Query Params
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="headers-tab" data-bs-toggle="tab" data-bs-target="#headers-pane" type="button"
+            role="tab">
+            Headers
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="JSON-tab" data-bs-toggle="tab" data-bs-target="#json-pane" type="button"
+            role="tab">
+            JSON
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content p-3 border-top-0 border">
+        <div class="tab-pane fade show active" id="query-params-pane" role="tabpanel" tabindex="0">
+          <div data-query-params></div>
+          <button class="btn btn-outline-success mt-2" type="button" data-add-query-params-btn>
+            Add
+          </button>
+        </div>
+        <div class="tab-pane fade" id="headers-pane" role="tabpanel" tabindex="0">
+          <div data-request-headers></div>
+          <button class="btn btn-outline-success mt-2" type="button" data-add-header-btn>
+            Add
+          </button>
+        </div>
+        <div class="tab-pane fade" id="json-pane" role="tabpanel" tabindex="0">
+          <div data-json-request-body>
+            <!-- <textarea class="form-control" name="json_input" id="json_input" rows="5" placeholder="enter JSON here">
+            </textarea> -->
+            <div id="json_input" class="w-auto" style="height: 200px; border: 1px solid grey">
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="mt-5 d-none" data-response-section>
+      <h3>Response</h3>
+      <div class="d-flex my-2">
+        <div class="me-2">Status: <span data-status></span></div>
+        <div class="me-2">Time: <span data-time></span>ms</div>
+        <div class="me-2">Size: <span data-size></span></div>
+      </div>
+
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="body-tab" data-bs-toggle="tab" data-bs-target="#body-pane" type="button"
+            role="tab">
+            Body
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="response-headers-tab" data-bs-toggle="tab"
+            data-bs-target="#response-headers-pane" type="button" role="tab">
+            Headers
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content p-3 border-top-0 border">
+        <div class="tab-pane fade show active" id="body-pane" role="tabpanel" tabindex="0">
+          <div data-response-body></div>
+        </div>
+        <div class="tab-pane fade" id="response-headers-pane" role="tabpanel" tabindex="0">
+          <div style="
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: 0.5rem 2rem;
+              " data-response-headers></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <template data-key-value-template>
+    <div class="input-group my-2" data-key-value-pair>
+      <input type="text" data-key class="form-control" placeholder="key" />
+      <input type="text" data-value class="form-control" placeholder="value" />
+      <button type="button" data-remove-btn class="btn btn-outline-danger">
+        Remove
+      </button>
+    </div>
+  </template>
+</body>
+
+</html>
